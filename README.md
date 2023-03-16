@@ -1,2 +1,1 @@
-# alx-low_level_programming
-C programing repo
+This is a readme for hello world in c
