@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * function_islower(int c) - function that return 1 if a charachter is lower otherwise it returns 0
+ * function_islower(int c) - function that return 1 or 0
  *
  * Return: 1 or 0
  */
