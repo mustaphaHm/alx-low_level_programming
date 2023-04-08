@@ -62,7 +62,7 @@ char *_strcat(char *dest, char *src)
 	return (dest);
 }
 
-100-atoi.c/     0           0     0     644     110       `
+100-atoi.c/     0           0     0     644     135       `
 #include "main.h"
 /**
  *_atoi - function
@@ -71,8 +71,10 @@ char *_strcat(char *dest, char *src)
  */
 int _atoi(char *s)
 {
-
+	int i = *s;
+	return (i);
 }
+
 1-isdigit.c/    0           0     0     644     201       `
 #include "main.h"
 /**
