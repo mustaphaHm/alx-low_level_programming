@@ -10,10 +10,10 @@ int main(int argc, char *argv[])
 {
 	int i, mul = 1;
 
-	if (argc == 1)
+	if (argc < 3 || argc > 3)
 	{
 		printf("Error\n");
-		exit(EXIT_FAILURE);
+		return (1);
 	}
 	else
 	{
@@ -22,7 +22,6 @@ int main(int argc, char *argv[])
 			mul *= atoi(argv[i]);
 		}
 		printf("%d\n", mul);
-		exit(EXIT_SUCCESS);
 	}
-	exit(EXIT_SUCCESS);
+	return (0);
 }
