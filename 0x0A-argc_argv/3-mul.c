@@ -24,5 +24,5 @@ int main(int argc, char *argv[])
 		printf("%d\n", mul);
 		exit(EXIT_SUCCESS);
 	}
-	return (0);
+	exit(EXIT_SUCCESS);
 }
