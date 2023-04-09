@@ -12,9 +12,12 @@ int main(int argc, char *argv[])
 
 	if (argc <= 1)
 		printf("Error\n");
-	for (i = 1; i < argc; i++)
+	else
 	{
-		mul *= atoi(argv[i]);
+		for (i = 1; i < argc; i++)
+		{
+			mul *= atoi(argv[i]);
+		}
 		printf("%d\n", mul);
 	}
 	return (0);
