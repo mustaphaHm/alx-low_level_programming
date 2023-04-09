@@ -24,14 +24,11 @@ int main(int argc, char *argv[])
 			}
 			else
 			{
-				printf("Error\n");
-				return (1);
+				return(printf("Error\n"), 1);
+				/*return (1);*/
 			}
 		}
-		/*if (onlyDigits == 1)*/
-		/*{*/
 		printf("%d\n", sum);
-		/*}*/
 	}
 	return (0);
 }
