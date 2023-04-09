@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 		for (i = 1; i < argc; i++)
 		{
 			/*if (*argv[i] > '0' && *argv[i] < '9')*/
-			if (isdigit(*argv[i]))
+			if (isdigit(*argv[i]) || (*argv[i] > '0' && *argv[i] < '9'))
 			{
 				sum += atoi(argv[i]);
 			}
