@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	if (argc == 1)
 	{
 		printf("Error\n");
-		return (1);
+		exit(EXIT_FAILURE);
 	}
 	else
 	{
@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 			mul *= atoi(argv[i]);
 		}
 		printf("%d\n", mul);
+		exit(EXIT_SUCCESS);
 	}
 	return (0);
 }
