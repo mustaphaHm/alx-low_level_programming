@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, onlyDigits = 0, sum = 0;
+	int i, sum = 0;
 
 	if (argc == 1)
 	{
@@ -20,20 +20,18 @@ int main(int argc, char *argv[])
 		{
 			if (*argv[i] > '0' && *argv[i] < '9')
 			{
-				onlyDigits = 1;
 				sum += atoi(argv[i]);
 			}
 			else
 			{
-				onlyDigits = 0;
 				printf("Error\n");
 				return (1);
 			}
 		}
-		if (onlyDigits == 1)
-		{
-			printf("%d\n", sum);
-		}
+		/*if (onlyDigits == 1)*/
+		/*{*/
+		printf("%d\n", sum);
+		/*}*/
 	}
 	return (0);
 }
