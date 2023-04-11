@@ -12,6 +12,8 @@ char *str_concat(char *s1, char *s2)
 	char *ar;
 	int lenghtS1, lenghtS2, lenghtOfTwoStrings, i;
 
+	if (s1 == NULL && s2 == NULL)
+		return (NULL);
 	lenghtS1 = strlen(s1);
 	lenghtS2 = strlen(s2);
 	lenghtOfTwoStrings = lenghtS1 + lenghtS2;
