@@ -12,8 +12,6 @@ char *str_concat(char *s1, char *s2)
 	char *ar;
 	int lenghtS1, lenghtS2, lenghtOfTwoStrings, i;
 
-	/*if (s1 == NULL && s2 == NULL)
-		return (NULL);*/
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
@@ -28,11 +26,9 @@ char *str_concat(char *s1, char *s2)
 	{
 		ar[i] = s1[i];
 	}
-	/*j = 0;*/
 	for (i = 0; i < (lenghtOfTwoStrings - lenghtS1); i++)
 	{
 		ar[lenghtS1 + i] = s2[i];
-		/*j++;*/
 	}
 	return (ar);
 }
