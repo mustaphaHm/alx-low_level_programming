@@ -1,0 +1,10 @@
+/**
+ * dog - struct
+ * Return: 
+ */
+struct dog
+{
+	char *name;
+	float age;
+	char *owner;
+};
