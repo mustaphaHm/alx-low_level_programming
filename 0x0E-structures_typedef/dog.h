@@ -1,6 +1,11 @@
+#ifndef STRUCT_H
+#define STRUCT_H
 /**
- * dog - struct
- * Return: 
+ * struct dog - struct
+ * @name: string parameter
+ * @age: float age
+ * @owner: string parameter
+ * Return: struct
  */
 struct dog
 {
@@ -8,3 +13,4 @@ struct dog
 	float age;
 	char *owner;
 };
+#endif
