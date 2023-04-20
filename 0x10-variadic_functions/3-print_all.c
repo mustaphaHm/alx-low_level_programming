@@ -11,24 +11,24 @@
 void print_all(const char * const format, ...)
 {
 	int i = 0;
-	char *s, *sep = "";
+	char *str, *sep = "";
 	va_list list;
 
 	va_start(list, format);
-	if (format != NULL)
+	if (format)
 	{
-		while (format[i] != NULL)
+		while (format[i])
 		{
 			switch (format[i])
 			{
 				case 'c':
-					printf("%s%c", sep, va_arg(lis, int));
+					printf("%s%c", sep, va_arg(list, int));
 					break;
 				case 'i':
-					printf("%s%d", sep, va_arg(lis, int));
+					printf("%s%d", sep, va_arg(list, int));
 					break;
 				case 'f':
-					printf("%s%f", sep, va_arg(lis, double));
+					printf("%s%f", sep, va_arg(list, double));
 					break;
 				case 's':
 					str = va_arg(list, char *);
