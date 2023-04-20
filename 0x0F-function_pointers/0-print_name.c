@@ -8,7 +8,7 @@ void f(char *name)
 {
 	while (*name)
 	{
-		_putchar(*name);
+		putchar(*name);
 		name++;
 	}
 }
