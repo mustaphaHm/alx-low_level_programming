@@ -1,4 +1,5 @@
-#include "function_pointers.h"
+#include "stdlib.h"
+#include "3-calc.h"
 /**
  * get_op_func - function that selected a corect function
  * @s: char parameter
@@ -16,10 +17,10 @@ int (*get_op_func(char *s))(int, int)
 	};
 	int i = 0;
 
-	while (ops[i].operation != NULL)
+	while (ops[i].op != NULL)
 	{
-		if (*ops[i].operation == *s)
-			return (ops[i].function);
+		if (*ops[i].op == *s)
+			return (ops[i].f);
 		i++;
 	}
 	return (NULL);
