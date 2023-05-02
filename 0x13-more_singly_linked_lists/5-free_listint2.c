@@ -17,4 +17,5 @@ void free_listint2(listint_t **head)
 		free(startElm);
 		startElm = nextElm;
 	}
+	*head = NULL;
 }
