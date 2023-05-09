@@ -7,8 +7,7 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int f, lenght = 0, r, w;
-	char *ch;
+	int f, lenght = 0, w;
 
 	if (filename == NULL)
 		return (-1);
@@ -19,16 +18,8 @@ int create_file(const char *filename, char *text_content)
 	{
 		lenght++;
 	}
-	ch = malloc(sizeof(char) * lenght);
-	if (ch == NULL)
-	{
-		free(ch);
-		close(f);
-		return (-1);
-	}
-	r = read(f, ch, lenght);
-	w = write(f, ch, r);
-	if (r == -1 || w == -1)
+	w = write(f, text_content, lenght);
+	if (w == -1)
 		return (-1);
 	close(f);
 	return (1);
