@@ -1,26 +1,30 @@
 #include "lists.h"
+
 /**
- * add_dnodeint - function that adds a node at the begining of LK list
- * @head: pointer to a pointer to the head of the list
- * @n: constant integer
- * Return: the adress of the new element or NULL
+ * add_dnodeint -  prints all the elements of a dlistint_t list
+ * @head: head of double list
+ * @n: new node
+ * Return: the address of the new element, or NULL if it failed
  */
+
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
 	dlistint_t *newNode;
 
-	newNode = malloc(sizeof(dlistint_t));
-	if (newNode == NULL)
+	if (!head)
 		return (NULL);
-
+	new = malloc(sizeof(dlistint_t));
+	if (!newNode)
+		return (NULL);
 	newNode->n = n;
-	newNode->next = *head;
-	newNode->prev = NULL;
-
 	if (*head)
+	{
+		newNode->next = *head;
 		(*head)->prev = newNode;
-
-	*head = newNode;
-
-	return (newNode);
+	}
+	else
+		newNode->next = NULL;
+	newNode->prev = NULL;
+	*head = new;
+	return (new);
 }
