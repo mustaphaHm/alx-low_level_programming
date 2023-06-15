@@ -1,9 +1,9 @@
 #include "lists.h"
 
 /**
- * add_dnodeint -  prints all the elements of a dlistint_t list
- * @head: head of double list
- * @n: new node
+ * add_dnodeint - functiion that  prints all the elements of a lk l list
+ * @head: pointer to the head
+ * @n: constant integer (data)
  * Return: the address of the new element, or NULL if it failed
  */
 
@@ -13,7 +13,7 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 
 	if (!head)
 		return (NULL);
-	new = malloc(sizeof(dlistint_t));
+	newNode = malloc(sizeof(dlistint_t));
 	if (!newNode)
 		return (NULL);
 	newNode->n = n;
@@ -25,6 +25,6 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	else
 		newNode->next = NULL;
 	newNode->prev = NULL;
-	*head = new;
-	return (new);
+	*head = newNode;
+	return (newNode);
 }
