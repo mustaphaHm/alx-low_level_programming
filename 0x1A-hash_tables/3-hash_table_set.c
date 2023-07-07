@@ -8,40 +8,33 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *item, *current_item;
+	hash_node_t *new_item, *current_item;
 	unsigned long int index = 0;
 
 	if (ht == NULL || key == NULL || *key == '\0')
 		return (0);
-	/*create the item to be inserted*/
-	item = create_item(key, value);
-	/* retrieve the index by using the key */
 	index = key_index((const unsigned char *)key, ht->size);
-	/* retrive the current item at the founded index*/
 	current_item = ht->array[index];
 
-	if (current_item == NULL)
+	while (current_item != NULL)
 	{
-		/*insert the item*/
-		ht->array[index] = item;
-		return (1);
-	}
-	else
-	{
-		/*if the key already exist, we gonna update the value*/
 		if (strcmp(current_item->key, key) == 0)
 		{
-			strcpy(ht->array[index]->value, value);
+			free(current_item->value);
+			current_item->value = strdup(value);
 			return (1);
 		}
-		else
-		{
-			/* handle collision*/
-			handle_coll(ht, index, item);
-			return (1);
-		}
+		current_item = current_item->next;
 	}
 
+	new_item = create_item(key, value);
+	if (new_item == NULL)
+		return (0);
+
+	new_item->next = ht->array[index];
+	ht->array[index] = new_item;
+
+	return (1);
 }
 /**
  * create_item - function that create an item of ht
@@ -52,39 +45,27 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 hash_node_t *create_item(const char *key, const char *value)
 {
 	hash_node_t *item = malloc(sizeof(hash_node_t));
+	if (item == NULL)
+	{
+		return (NULL);
+	}
 
 	item->key = malloc(strlen(key) + 1);
-	item->value = malloc(strlen(value) + 1);
-
-	strcpy(item->key, key);
-	strcpy(item->value, value);
-	return (item);
-}
-/**
- * handle_coll- function that hundles collision on a ht
- * @ht: the hashtable
- * @idx: the index
- * @it: the item
- * Return: void
- */
-void handle_coll(hash_table_t *ht, unsigned long int idx, hash_node_t *it)
-{
-	/*retrive the current item at the index*/
-	hash_node_t *current_item = ht->array[idx];
-	/*traverse the linkedlist until the end*/
-	while (current_item->next != NULL)
+	if (item->key == NULL)
 	{
-		/* check if the key already exist in the linked list*/
-		if (strcmp(current_item->key, it->key) == 0)
-		{
-			/*the key already exist so update the value*/
-			strcpy(current_item->value, it->value);
-			free(it->key);
-			free(it->value);
-			free(it);
-		}
-		current_item = current_item->next;
+		free(item);
+		return (NULL);
 	}
-	/* append the item at the end of the linked list*/
-	current_item->next = it;
+	strcpy(item->key, key);
+
+	item->value = malloc(strlen(value) + 1);
+	if (item->value == NULL)
+	{
+		free(item->key);
+		free(item);
+		return (NULL);
+	}
+	strcpy(item->value, value);
+	item->next = NULL;
+	return (item);
 }
